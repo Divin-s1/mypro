@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Nyanza Modern Fruit</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    background:#f0fff0;
+    overflow:hidden;
+}
+
+
+.left{
+    flex:1;
+    background:url("r.png");
+    background-size:cover;
+    background-position:center;
+    animation: zoomIn 10s infinite alternate;
+}
+
+@keyframes zoomIn{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
+}
+
+
+.right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(120deg, #eaffea, #ffffff);
+}
+
+
+.login-box{
+    background:white;
+    padding:30px;
+    width:320px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideUp{
+    from{transform:translateY(50px); opacity:0;}
+    to{transform:translateY(0); opacity:1;}
+}
+
+.login-box h2{
+    color:green;
+    margin-bottom:20px;
+    font-family:cursive;
+}
+
+
+.login-box input,
+.login-box select{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    transition:0.3s;
+}
+
+.login-box input:focus,
+.login-box select:focus{
+    border-color:green;
+    transform:scale(1.03);
+}
+
+
+.login-box button{
+    width:100%;
+    padding:12px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+.login-box button:hover{
+    background:darkgreen;
+    transform:scale(1.05);
+}
+
+
+.error{
+    color:red;
+    font-size:14px;
+    margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<div class="left"></div>
+
+
+<div class="right">
+
+<div class="login-box">
+    <h2>Welcome 👌👌</h2>
+
+    <input type="text" id="name" placeholder="Enter your name">
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <input type="password" id="password" placeholder="Enter password">
+
+    <select id="role">
+        <option value="">Select Role</option>
+        <option value="customer">Customer</option>
+        <option value="seller">Seller</option>
+    </select>
+
+    <button onclick="login()">Login</button>
+
+    <div class="error" id="error"></div>
+</div>
+
+</div>
+
+<script>
+function login(){
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let role = document.getElementById("role").value;
+    let error = document.getElementById("error");
+
+    if(name === "" || email === "" || password === "" || role === ""){
+        error.innerText = "Please fill all fields!";
+        return;
+    }
+
+    if(password.length < 4){
+        error.innerText = "Password too short!";
+        return;
+    }
+
+    
+    localStorage.setItem("username", name);
+    localStorage.setItem("role", role);
+
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

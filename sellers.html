@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyanza Modern Fruit - Sellers</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("r.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x:hidden;
+    animation: bgZoom 15s infinite alternate;
+}
+
+@keyframes bgZoom{
+    from{
+        background-size:100%;
+    }
+    to{
+        background-size:110%;
+    }
+}
+
+/* NAVIGATION */
+nav{
+    background: rgba(0, 128, 0, 0.9);
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    animation: slideDown 1s ease;
+}
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+nav h2{
+    font-family:cursive;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 5px white;
+    }
+    to{
+        text-shadow:0 0 20px yellow;
+    }
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:0 10px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+    padding:8px 12px;
+    border-radius:6px;
+}
+
+nav ul li a:hover{
+    background:white;
+    color:green;
+    transform:scale(1.1);
+}
+
+
+.container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    padding:20px;
+}
+
+
+.box{
+    background: rgba(255,255,255,0.95);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+
+    animation: fadeUp 1s ease;
+    transition:0.4s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.box h2{
+    color:green;
+    margin-bottom:15px;
+}
+
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+input:focus,
+textarea:focus{
+    border-color:green;
+    transform:scale(1.02);
+    outline:none;
+}
+
+
+button{
+    width:100%;
+    padding:12px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+button:hover{
+    background:darkgreen;
+    transform:scale(1.03);
+}
+
+
+.card{
+    background:#f5fff5;
+    padding:15px;
+    margin-top:15px;
+    border-left:5px solid green;
+    border-radius:10px;
+
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+
+.seller{
+    background:#f1f1f1;
+    padding:15px;
+    margin:15px 0;
+    border-radius:10px;
+    transition:0.4s;
+}
+
+.seller:hover{
+    transform:translateX(10px);
+    background:#eaffea;
+}
+
+
+.call{
+    background:blue;
+    margin-top:5px;
+}
+
+.call:hover{
+    background:darkblue;
+}
+
+.msg{
+    background:orange;
+    margin-top:5px;
+}
+
+.msg:hover{
+    background:darkorange;
+}
+
+
+.buy-info{
+    margin-top:20px;
+    background:#f5fff5;
+    padding:15px;
+    border-radius:10px;
+    border-left:5px solid green;
+    line-height:1.8;
+}
+
+
+.footer{
+    margin-top:40px;
+    background: rgba(0, 100, 0, 0.9);
+    color:white;
+    text-align:center;
+    padding:25px;
+    font-family:cursive;
+    border-top:3px solid yellow;
+
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+.footer h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.footer p{
+    font-size:14px;
+    margin:5px 0;
+}
+
+
+@media(max-width:900px){
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        flex-direction:column;
+    }
+
+    nav ul{
+        margin-top:10px;
+        justify-content:center;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+
+<nav>
+    <h2>🍍 Nyanza Modern Fruits</h2>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gate.html">Sign Up</a></li>
+        <li><a href="fruits.html">Fruits</a></li>
+        <li><a href="sellers.html">Sellers</a></li>
+        <li><a href="customers.html">Customers</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+
+    
+    <div class="box">
+        <h2>🍎 Sell Your Fruits</h2>
+
+        <input type="text" id="name" placeholder="Fruit name">
+
+        <input type="number" id="price" placeholder="Price (RWF)">
+
+        <textarea id="desc" placeholder="Description"></textarea>
+
+        <button onclick="addFruit()">Post Fruit</button>
+
+        <div id="list"></div>
+    </div>
+
+    
+    <div class="box">
+        <h2>👨‍🌾 Sellers Information</h2>
+
+        <div class="seller">
+            <h3>John Fruits Market</h3>
+            <p>📞 +250 788 111 222</p>
+            <p>🌏 Nyanza City</p>
+
+            <button class="call"
+            onclick="call('+250788111222')">
+            Call
+            </button>
+
+            <button class="msg"
+            onclick="msg('John Fruits Market')">
+            Message
+            </button>
+        </div>
+
+        <div class="seller">
+            <h3>Mary Fresh Fruits</h3>
+            <p>📞 +250 722 333 444</p>
+            <p>🌏 Busasamana</p>
+
+            <button class="call"
+            onclick="call('+250722333444')">
+            Call
+            </button>
+
+            <button class="msg"
+            onclick="msg('Mary Fresh Fruits')">
+            Message
+            </button>
+        </div>
+
+        <div class="buy-info">
+            <h3>🛒 How to Buy</h3>
+
+            <p>1. Choose fruit</p>
+            <p>2. Click Buy Now</p>
+            <p>3. Contact seller</p>
+            <p>4. Confirm delivery</p>
+            <p>5. Wait for your order</p>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="footer">
+    <h3>🍉 NYANZA MODERN FRUIT</h3>
+
+    <p>Fresh • Healthy • Natural Fruits</p>
+
+    <p>We connect sellers and buyers easily</p>
+
+    <p>📞 +250 7XX XXX XXX</p>
+
+    <p>📧 nyanzafruit@gmail.com</p>
+
+    <p>© 2026 All Rights Reserved</p>
+</div>
+
+<script>
+function addFruit(){
+
+    let n = document.getElementById("name").value;
+    let p = document.getElementById("price").value;
+    let d = document.getElementById("desc").value;
+
+    if(n==""||p==""||d==""){
+        alert("Fill all fields!");
+        return;
+    }
+
+    let div = document.createElement("div");
+
+    div.classList.add("card");
+
+    div.innerHTML = `
+        <h3>${n}</h3>
+        <p>${d}</p>
+        <p><b>${p} RWF</b></p>
+
+        <button onclick="order('${n}')">
+        🛒 Buy Now
+        </button>
+    `;
+
+    document.getElementById("list")
+    .appendChild(div);
+
+    document.getElementById("name").value="";
+    document.getElementById("price").value="";
+    document.getElementById("desc").value="";
+}
+
+function call(num){
+    window.location.href = "tel:" + num;
+}
+
+function msg(name){
+
+    let m = prompt("Write message to " + name);
+
+    if(m){
+        alert("✅ Message sent:\n" + m);
+    }
+}
+
+function order(fruit){
+
+    let loc = prompt("Enter your location for " + fruit);
+
+    if(loc){
+
+        let mins =
+        Math.floor(Math.random()*30)+10;
+
+        alert(
+        "✅ Order placed for " + fruit +
+        "\n📍 Delivery to: " + loc +
+        "\n🚚 Arrival Time: " + mins + " mins"
+        );
+    }
+}
+</script>
+
+</body>
+</html>

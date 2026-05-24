@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyanza Modern Fruit</title>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(120deg, #eaffea, #ffffff);
+    background-image: url(r.png);
+    overflow-x:hidden;
+}
+
+/* HEADER ANIMATION */
+.header{
+    background: linear-gradient(90deg, rgb(33, 166, 3), rgb(10, 120, 20));
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    animation: slideDown 1s ease;
+}
+
+@keyframes slideDown{
+    from{transform:translateY(-100%); opacity:0;}
+    to{transform:translateY(0); opacity:1;}
+}
+
+.header h1{
+    color: white;
+    font-family: cursive;
+    font-size: 26px;
+}
+
+/* NAV ANIMATION */
+.nav{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav a{
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    transition: 0.3s;
+    font-family: cursive;
+
+    animation: fadeIn 1.5s ease;
+}
+
+.nav a:hover{
+    background: white;
+    color: green;
+    transform: scale(1.1);
+}
+
+/* HERO ANIMATION */
+.hero{
+    text-align: center;
+    padding: 70px 20px;
+    animation: fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.hero h2{
+    font-size: 38px;
+    color: #1a7f1a;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{text-shadow:0 0 5px green;}
+    to{text-shadow:0 0 20px lime;}
+}
+
+.hero p{
+    margin: 10px 0 20px;
+    color: whitesmoke;
+}
+
+/* BUTTON PULSE */
+.hero button{
+    padding: 12px 25px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+/* CARDS ANIMATION */
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.card{
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    transition: 0.4s;
+    animation: cardIn 1s ease;
+}
+
+@keyframes cardIn{
+    from{opacity:0; transform:scale(0.5);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.card:hover{
+    transform: translateY(-10px) scale(1.05);
+}
+
+.card img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h3{
+    margin-top: 10px;
+    color: green;
+}
+
+/* LOCATION FADE */
+.location{
+    padding: 40px;
+    text-align: center;
+    background: #f4fff4;
+    animation: fadeUp 2s ease;
+}
+
+.location h2{
+    color: green;
+    margin-bottom: 20px;
+    font-family: cursive;
+    font-size: 28px;
+}
+
+.location-box{
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* FOOTER ANIMATION */
+.footer{
+    background: linear-gradient(90deg, rgb(33, 166, 3), rgb(10, 120, 20));
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+
+    animation: slideUp 1.5s ease;
+}
+
+@keyframes slideUp{
+    from{transform:translateY(100%); opacity:0;}
+    to{transform:translateY(0); opacity:1;}
+}
+
+/* LOGO */
+.logo-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-title img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="logo-title">
+        <img src="QQ.png" alt="Logo">
+        <h1 id="title"></h1>
+    </div>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="gate.html">Sign up</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="sellers.html">Sellers</a>
+        <a href="customers.html">Customers</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</div>
+
+<div class="hero">
+    <h2>Fresh Fruits for Healthy Life</h2>
+    <p>We connect buyers and sellers of fresh fruits in a modern way</p>
+    <button>Explore Fruits</button>
+</div>
+
+<div class="cards">
+    <div class="card">
+        <img src="apple.png">
+        <h3>Apples</h3>
+    </div>
+
+    <div class="card">
+        <img src="orange.png">
+        <h3>Oranges</h3>
+    </div>
+
+    <div class="card">
+        <img src="Screenshot 2026-05-12 103002.png">
+        <h3>Bananas</h3>
+    </div>
+
+    <div class="card">
+        <img src="mango.png">
+        <h3>Mangoes</h3>
+    </div>
+</div>
+
+<div class="location">
+    <h2>🌏 Where We Are</h2>
+
+    <div class="location-box">
+        <p>🇷🇼 Country: Rwanda</p>
+        <p>🌄 Province: Southern Province</p>
+        <p>🏙️ District: Nyanza</p>
+        <p>🍉 Business: Nyanza Modern Fruit Market</p>
+        <p>⏰ Working Hours: 07:00 AM - 06:00 PM</p>
+    </div>
+</div>
+
+<div class="footer">
+    <h3>NYANZA MODERN FRUIT</h3>
+    <p>Fresh • Healthy • Natural</p>
+    <p>© 2026 All Rights Reserved</p>
+</div>
+
+<script>
+const text = "NYANZA MODERN FRUIT CENTER";
+let i = 0;
+let deleting = false;
+
+function typeEffect(){
+    const title = document.getElementById("title");
+
+    if(!deleting){
+        title.innerHTML = text.substring(0, i++);
+        
+        if(i > text.length){
+            deleting = true;
+            setTimeout(typeEffect, 800);
+            return;
+        }
+    } else {
+        title.innerHTML = text.substring(0, i--);
+
+        if(i < 0){
+            deleting = false;
+        }
+    }
+
+    setTimeout(typeEffect, 80);
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>

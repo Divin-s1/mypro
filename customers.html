@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customers - Nyanza Modern Fruit</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+body{
+    background-image: url("r.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+nav{
+    background: linear-gradient(90deg, #0b7a0b, #13a513);
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    position: sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
+
+nav h2{
+    font-family:cursive;
+    font-size:22px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:15px;
+}
+
+.nav-links li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    background:white;
+    color:green;
+}
+
+
+.container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+    padding:20px;
+}
+
+
+.box{
+    background: rgba(255,255,255,0.95);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkgreen;
+}
+
+
+.info{
+    background:#f5fff5;
+    padding:10px;
+    margin:10px 0;
+    border-left:5px solid green;
+    border-radius:6px;
+}
+
+
+#result{
+    margin-top:10px;
+}
+
+
+.footer{
+    margin-top:40px;
+    background: rgba(0, 100, 0, 0.9);
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-family:cursive;
+    border-top:3px solid yellow;
+}
+
+.footer p{
+    font-size:14px;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<nav>
+    <h2> Nyanza Fruits Center</h2>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gate.html">Sign up</a></li>
+        <li><a href="fruits.html">Fruits</a></li>
+        <li><a href="sellers.html">Sellers</a></li>
+        <li><a href="customers.html">Customers</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+
+
+    <div class="box">
+        <h2>📌 How This Website Works</h2>
+
+        <div class="info">🍎 Sellers post fresh fruits with price and description</div>
+        <div class="info">🛒 Customers choose fruits and click Buy Now</div>
+        <div class="info">📞 Customers can call or message sellers directly</div>
+        <div class="info">🚚 Delivery is done after order confirmation</div>
+        <div class="info">💬 Support is available anytime for help</div>
+    </div>
+
+    
+    <div class="box">
+        <h2>📋 Customer Requirements</h2>
+
+        <div class="info">✔ Use real name when ordering</div>
+        <div class="info">✔ Provide correct delivery location</div>
+        <div class="info">✔ Confirm order before delivery</div>
+        <div class="info">✔ Be available on phone after ordering</div>
+        <div class="info">✔ Respect sellers and delivery agents</div>
+    </div>
+
+    
+    <div class="box">
+        <h2>📦 Check Your Order Status</h2>
+
+        <input type="text" id="orderName" placeholder="Enter fruit name">
+        <input type="text" id="location" placeholder="Enter your location">
+
+        <button onclick="checkOrder()">Check Order</button>
+
+        <div id="result"></div>
+    </div>
+
+</div>
+
+
+<div class="footer">
+    <h3>🍍 NYANZA MODERN FRUIT</h3>
+    <p>Fresh • Healthy • Natural Fruits</p>
+    <p>Customer satisfaction is our priority</p>
+    <p>📞 +250 7XX XXX XXX | 📧 support@nyanza.com</p>
+    <p>© 2026 All Rights Reserved</p>
+</div>
+
+<script>
+function checkOrder(){
+    let fruit = document.getElementById("orderName").value;
+    let loc = document.getElementById("location").value;
+    let result = document.getElementById("result");
+
+    if(fruit=="" || loc==""){
+        result.innerHTML = "<p style='color:red;'>Please fill all fields!</p>";
+        return;
+    }
+
+    result.innerHTML = `
+        <div class="info">
+            📦 Order for <b>${fruit}</b> is being processed<br>
+            🚚 Delivery location: <b>${loc}</b><br>
+            ⏳ Status: Pending approval from seller
+        </div>
+    `;
+}
+</script>
+
+</body>
+</html>
